@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cas_cliniques",
+  "info": {
+    "singularName": "cas-clinique",
+    "pluralName": "cas-cliniques",
+    "displayName": "Cas-clinique",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "test": {
+      "type": "component",
+      "repeatable": false,
+      "component": "test.test"
+    }
+  }
+}

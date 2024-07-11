@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_test_questions",
+  "info": {
+    "displayName": "question"
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "string"
+    },
+    "correction": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_test_tests",
+  "info": {
+    "displayName": "test",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "titre": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "test": {
+      "displayName": "question",
+      "type": "component",
+      "repeatable": true,
+      "component": "test.question"
+    },
+    "sous_matiere": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::sous-matiere.sous-matiere"
+    },
+    "enonce": {
+      "type": "customField",
+      "options": {
+        "output": "Markdown",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "hasParts": {
+      "type": "boolean"
+    }
+  }
+}

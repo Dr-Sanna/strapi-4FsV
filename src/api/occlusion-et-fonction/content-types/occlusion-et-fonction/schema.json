@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "occlusion_et_fonctions",
+  "info": {
+    "singularName": "occlusion-et-fonction",
+    "pluralName": "occlusion-et-fonctions",
+    "displayName": "Occlusion-et-fonction"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "test": {
+      "type": "component",
+      "repeatable": false,
+      "component": "test.test"
+    }
+  }
+}
