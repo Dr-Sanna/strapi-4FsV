@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "risques_medicauxes",
+  "info": {
+    "singularName": "risques-medicaux",
+    "pluralName": "risques-medicauxes",
+    "displayName": "Risques-médicaux"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "test": {
+      "type": "component",
+      "repeatable": false,
+      "component": "test.test"
+    }
+  }
+}

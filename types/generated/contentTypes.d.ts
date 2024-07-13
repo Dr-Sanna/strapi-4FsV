@@ -819,6 +819,38 @@ export interface ApiCasCliniqueCasClinique extends Schema.CollectionType {
   };
 }
 
+export interface ApiLiensUtileLiensUtile extends Schema.CollectionType {
+  collectionName: 'liens_utiles';
+  info: {
+    singularName: 'liens-utile';
+    pluralName: 'liens-utiles';
+    displayName: 'Liens-utile';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    titre: Attribute.String;
+    url: Attribute.String;
+    description: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::liens-utile.liens-utile',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::liens-utile.liens-utile',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMatiereMatiere extends Schema.CollectionType {
   collectionName: 'matieres';
   info: {
@@ -920,6 +952,37 @@ export interface ApiOcclusionEtFonctionPartieOcclusionEtFonctionPartie
   };
 }
 
+export interface ApiRisquesMedicauxRisquesMedicaux
+  extends Schema.CollectionType {
+  collectionName: 'risques_medicauxes';
+  info: {
+    singularName: 'risques-medicaux';
+    pluralName: 'risques-medicauxes';
+    displayName: 'Risques-m\u00E9dicaux';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    test: Attribute.Component<'test.test'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::risques-medicaux.risques-medicaux',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::risques-medicaux.risques-medicaux',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSousMatiereSousMatiere extends Schema.CollectionType {
   collectionName: 'sous_matieres';
   info: {
@@ -979,9 +1042,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::cas-clinique.cas-clinique': ApiCasCliniqueCasClinique;
+      'api::liens-utile.liens-utile': ApiLiensUtileLiensUtile;
       'api::matiere.matiere': ApiMatiereMatiere;
       'api::occlusion-et-fonction.occlusion-et-fonction': ApiOcclusionEtFonctionOcclusionEtFonction;
       'api::occlusion-et-fonction-partie.occlusion-et-fonction-partie': ApiOcclusionEtFonctionPartieOcclusionEtFonctionPartie;
+      'api::risques-medicaux.risques-medicaux': ApiRisquesMedicauxRisquesMedicaux;
       'api::sous-matiere.sous-matiere': ApiSousMatiereSousMatiere;
     }
   }

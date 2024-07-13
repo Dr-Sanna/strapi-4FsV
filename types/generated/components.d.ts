@@ -4,10 +4,25 @@ export interface TestQuestion extends Schema.Component {
   collectionName: 'components_test_questions';
   info: {
     displayName: 'question';
+    description: '';
   };
   attributes: {
-    question: Attribute.String;
-    correction: Attribute.String;
+    question: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'Markdown';
+          preset: 'standard';
+        }
+      >;
+    correction: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'Markdown';
+          preset: 'standard';
+        }
+      >;
   };
 }
 

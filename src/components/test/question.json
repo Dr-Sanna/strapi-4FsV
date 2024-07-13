@@ -1,15 +1,26 @@
 {
   "collectionName": "components_test_questions",
   "info": {
-    "displayName": "question"
+    "displayName": "question",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "question": {
-      "type": "string"
+      "type": "customField",
+      "options": {
+        "output": "Markdown",
+        "preset": "standard"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     },
     "correction": {
-      "type": "string"
+      "type": "customField",
+      "options": {
+        "output": "Markdown",
+        "preset": "standard"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     }
   }
 }
