@@ -1,5 +1,25 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface TestPart extends Schema.Component {
+  collectionName: 'components_test_parts';
+  info: {
+    displayName: 'Part';
+    description: '';
+  };
+  attributes: {
+    titre: Attribute.String;
+    enonce: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'Markdown';
+          preset: 'rich';
+        }
+      >;
+    test: Attribute.Component<'test.question', true>;
+  };
+}
+
 export interface TestQuestion extends Schema.Component {
   collectionName: 'components_test_questions';
   info: {
@@ -56,6 +76,7 @@ export interface TestTest extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'test.part': TestPart;
       'test.question': TestQuestion;
       'test.test': TestTest;
     }

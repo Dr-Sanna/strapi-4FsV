@@ -19,8 +19,9 @@
     },
     "occlusion_et_fonction": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::occlusion-et-fonction.occlusion-et-fonction"
+      "relation": "manyToOne",
+      "target": "api::occlusion-et-fonction.occlusion-et-fonction",
+      "inversedBy": "occlusion_et_fonction_parties"
     }
   }
 }

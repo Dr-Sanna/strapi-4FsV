@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_test_parts",
+  "info": {
+    "displayName": "Part",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "titre": {
+      "type": "string"
+    },
+    "enonce": {
+      "type": "customField",
+      "options": {
+        "output": "Markdown",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "test": {
+      "type": "component",
+      "repeatable": true,
+      "component": "test.question"
+    }
+  }
+}

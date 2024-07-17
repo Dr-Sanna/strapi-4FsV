@@ -22,4 +22,8 @@ module.exports = [
   'strapi::session',
   'strapi::favicon',
   'strapi::public',
+  {
+    name: 'global::filterAttributes',
+    config: {},
+  },
 ];

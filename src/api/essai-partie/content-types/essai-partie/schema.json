@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "essai_parties",
+  "info": {
+    "singularName": "essai-partie",
+    "pluralName": "essai-parties",
+    "displayName": "essai-partie",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "test": {
+      "type": "component",
+      "repeatable": false,
+      "component": "test.test"
+    },
+    "essai": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::essai.essai",
+      "inversedBy": "essai_parties"
+    }
+  }
+}

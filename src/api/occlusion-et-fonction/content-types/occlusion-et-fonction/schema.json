@@ -4,7 +4,8 @@
   "info": {
     "singularName": "occlusion-et-fonction",
     "pluralName": "occlusion-et-fonctions",
-    "displayName": "Occlusion-et-fonction"
+    "displayName": "Occlusion-et-fonction",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,6 +16,12 @@
       "type": "component",
       "repeatable": false,
       "component": "test.test"
+    },
+    "occlusion_et_fonction_parties": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::occlusion-et-fonction-partie.occlusion-et-fonction-partie",
+      "mappedBy": "occlusion_et_fonction"
     }
   }
 }

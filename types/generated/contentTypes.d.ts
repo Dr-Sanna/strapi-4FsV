@@ -819,6 +819,78 @@ export interface ApiCasCliniqueCasClinique extends Schema.CollectionType {
   };
 }
 
+export interface ApiEssaiEssai extends Schema.CollectionType {
+  collectionName: 'essais';
+  info: {
+    singularName: 'essai';
+    pluralName: 'essais';
+    displayName: 'essai';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    test: Attribute.Component<'test.test'>;
+    essai_parties: Attribute.Relation<
+      'api::essai.essai',
+      'oneToMany',
+      'api::essai-partie.essai-partie'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::essai.essai',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::essai.essai',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEssaiPartieEssaiPartie extends Schema.CollectionType {
+  collectionName: 'essai_parties';
+  info: {
+    singularName: 'essai-partie';
+    pluralName: 'essai-parties';
+    displayName: 'essai-partie';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    test: Attribute.Component<'test.test'>;
+    essai: Attribute.Relation<
+      'api::essai-partie.essai-partie',
+      'manyToOne',
+      'api::essai.essai'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::essai-partie.essai-partie',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::essai-partie.essai-partie',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiLiensUtileLiensUtile extends Schema.CollectionType {
   collectionName: 'liens_utiles';
   info: {
@@ -891,12 +963,18 @@ export interface ApiOcclusionEtFonctionOcclusionEtFonction
     singularName: 'occlusion-et-fonction';
     pluralName: 'occlusion-et-fonctions';
     displayName: 'Occlusion-et-fonction';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     test: Attribute.Component<'test.test'>;
+    occlusion_et_fonction_parties: Attribute.Relation<
+      'api::occlusion-et-fonction.occlusion-et-fonction',
+      'oneToMany',
+      'api::occlusion-et-fonction-partie.occlusion-et-fonction-partie'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -931,7 +1009,7 @@ export interface ApiOcclusionEtFonctionPartieOcclusionEtFonctionPartie
     test: Attribute.Component<'test.test'>;
     occlusion_et_fonction: Attribute.Relation<
       'api::occlusion-et-fonction-partie.occlusion-et-fonction-partie',
-      'oneToOne',
+      'manyToOne',
       'api::occlusion-et-fonction.occlusion-et-fonction'
     >;
     createdAt: Attribute.DateTime;
@@ -959,6 +1037,7 @@ export interface ApiRisquesMedicauxRisquesMedicaux
     singularName: 'risques-medicaux';
     pluralName: 'risques-medicauxes';
     displayName: 'Risques-m\u00E9dicaux';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1042,6 +1121,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::cas-clinique.cas-clinique': ApiCasCliniqueCasClinique;
+      'api::essai.essai': ApiEssaiEssai;
+      'api::essai-partie.essai-partie': ApiEssaiPartieEssaiPartie;
       'api::liens-utile.liens-utile': ApiLiensUtileLiensUtile;
       'api::matiere.matiere': ApiMatiereMatiere;
       'api::occlusion-et-fonction.occlusion-et-fonction': ApiOcclusionEtFonctionOcclusionEtFonction;

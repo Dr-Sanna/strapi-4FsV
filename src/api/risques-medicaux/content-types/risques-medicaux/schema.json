@@ -4,7 +4,8 @@
   "info": {
     "singularName": "risques-medicaux",
     "pluralName": "risques-medicauxes",
-    "displayName": "Risques-médicaux"
+    "displayName": "Risques-médicaux",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

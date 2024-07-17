@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "essais",
+  "info": {
+    "singularName": "essai",
+    "pluralName": "essais",
+    "displayName": "essai",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "test": {
+      "type": "component",
+      "repeatable": false,
+      "component": "test.test"
+    },
+    "essai_parties": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::essai-partie.essai-partie",
+      "mappedBy": "essai"
+    }
+  }
+}
