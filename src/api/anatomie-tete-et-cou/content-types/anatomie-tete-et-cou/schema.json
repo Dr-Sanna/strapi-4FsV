@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "essais",
+  "collectionName": "anatomie_tete_et_cous",
   "info": {
-    "singularName": "essai",
-    "pluralName": "essais",
-    "displayName": "essai",
+    "singularName": "anatomie-tete-et-cou",
+    "pluralName": "anatomie-tete-et-cous",
+    "displayName": "Anatomie tête et cou",
     "description": ""
   },
   "options": {
@@ -16,12 +16,6 @@
       "type": "component",
       "repeatable": false,
       "component": "test.test"
-    },
-    "essai_parties": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::essai-partie.essai-partie",
-      "mappedBy": "essai"
     },
     "QCM": {
       "type": "component",

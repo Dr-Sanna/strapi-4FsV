@@ -38,9 +38,6 @@
         "preset": "rich"
       },
       "customField": "plugin::ckeditor.CKEditor"
-    },
-    "hasParts": {
-      "type": "boolean"
     }
   }
 }

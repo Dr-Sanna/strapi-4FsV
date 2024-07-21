@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "medecine_orales",
+  "info": {
+    "singularName": "medecine-orale",
+    "pluralName": "medecine-orales",
+    "displayName": "Médecine orale"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "test": {
+      "type": "component",
+      "repeatable": false,
+      "component": "test.test"
+    }
+  }
+}

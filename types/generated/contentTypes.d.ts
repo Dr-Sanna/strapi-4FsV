@@ -788,6 +788,39 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiAnatomieTeteEtCouAnatomieTeteEtCou
+  extends Schema.CollectionType {
+  collectionName: 'anatomie_tete_et_cous';
+  info: {
+    singularName: 'anatomie-tete-et-cou';
+    pluralName: 'anatomie-tete-et-cous';
+    displayName: 'Anatomie t\u00EAte et cou';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    test: Attribute.Component<'test.test'>;
+    QCM: Attribute.Component<'test.qcm', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::anatomie-tete-et-cou.anatomie-tete-et-cou',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::anatomie-tete-et-cou.anatomie-tete-et-cou',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCasCliniqueCasClinique extends Schema.CollectionType {
   collectionName: 'cas_cliniques';
   info: {
@@ -837,6 +870,7 @@ export interface ApiEssaiEssai extends Schema.CollectionType {
       'oneToMany',
       'api::essai-partie.essai-partie'
     >;
+    QCM: Attribute.Component<'test.qcm', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -949,6 +983,36 @@ export interface ApiMatiereMatiere extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::matiere.matiere',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMedecineOraleMedecineOrale extends Schema.CollectionType {
+  collectionName: 'medecine_orales';
+  info: {
+    singularName: 'medecine-orale';
+    pluralName: 'medecine-orales';
+    displayName: 'M\u00E9decine orale';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    test: Attribute.Component<'test.test'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::medecine-orale.medecine-orale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::medecine-orale.medecine-orale',
       'oneToOne',
       'admin::user'
     > &
@@ -1120,11 +1184,13 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::anatomie-tete-et-cou.anatomie-tete-et-cou': ApiAnatomieTeteEtCouAnatomieTeteEtCou;
       'api::cas-clinique.cas-clinique': ApiCasCliniqueCasClinique;
       'api::essai.essai': ApiEssaiEssai;
       'api::essai-partie.essai-partie': ApiEssaiPartieEssaiPartie;
       'api::liens-utile.liens-utile': ApiLiensUtileLiensUtile;
       'api::matiere.matiere': ApiMatiereMatiere;
+      'api::medecine-orale.medecine-orale': ApiMedecineOraleMedecineOrale;
       'api::occlusion-et-fonction.occlusion-et-fonction': ApiOcclusionEtFonctionOcclusionEtFonction;
       'api::occlusion-et-fonction-partie.occlusion-et-fonction-partie': ApiOcclusionEtFonctionPartieOcclusionEtFonctionPartie;
       'api::risques-medicaux.risques-medicaux': ApiRisquesMedicauxRisquesMedicaux;

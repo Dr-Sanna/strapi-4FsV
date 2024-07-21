@@ -1,22 +1,25 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface TestPart extends Schema.Component {
-  collectionName: 'components_test_parts';
+export interface TestProposition extends Schema.Component {
+  collectionName: 'components_test_propositions';
   info: {
-    displayName: 'Part';
-    description: '';
+    displayName: 'proposition';
   };
   attributes: {
-    titre: Attribute.String;
-    enonce: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          output: 'Markdown';
-          preset: 'rich';
-        }
-      >;
-    test: Attribute.Component<'test.question', true>;
+    proposition: Attribute.String;
+    isCorrect: Attribute.Boolean;
+    correction: Attribute.String;
+  };
+}
+
+export interface TestQcm extends Schema.Component {
+  collectionName: 'components_test_qcms';
+  info: {
+    displayName: 'QCM';
+  };
+  attributes: {
+    question: Attribute.String;
+    proposition: Attribute.Component<'test.proposition', true>;
   };
 }
 
@@ -69,14 +72,14 @@ export interface TestTest extends Schema.Component {
           preset: 'rich';
         }
       >;
-    hasParts: Attribute.Boolean;
   };
 }
 
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'test.part': TestPart;
+      'test.proposition': TestProposition;
+      'test.qcm': TestQcm;
       'test.question': TestQuestion;
       'test.test': TestTest;
     }
