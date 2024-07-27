@@ -4,7 +4,8 @@
   "info": {
     "singularName": "medecine-orale",
     "pluralName": "medecine-orales",
-    "displayName": "Médecine orale"
+    "displayName": "Médecine orale",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,6 +16,11 @@
       "type": "component",
       "repeatable": false,
       "component": "test.test"
+    },
+    "QCM": {
+      "type": "component",
+      "repeatable": true,
+      "component": "test.qcm"
     }
   }
 }

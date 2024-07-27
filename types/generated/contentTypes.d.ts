@@ -996,12 +996,14 @@ export interface ApiMedecineOraleMedecineOrale extends Schema.CollectionType {
     singularName: 'medecine-orale';
     pluralName: 'medecine-orales';
     displayName: 'M\u00E9decine orale';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     test: Attribute.Component<'test.test'>;
+    QCM: Attribute.Component<'test.qcm', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
