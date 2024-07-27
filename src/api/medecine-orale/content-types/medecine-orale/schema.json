@@ -21,6 +21,12 @@
       "type": "component",
       "repeatable": true,
       "component": "test.qcm"
+    },
+    "medecine_orale_parties": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::medecine-orale-partie.medecine-orale-partie",
+      "mappedBy": "medecine_orale"
     }
   }
 }

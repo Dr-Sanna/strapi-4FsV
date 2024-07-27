@@ -1004,6 +1004,11 @@ export interface ApiMedecineOraleMedecineOrale extends Schema.CollectionType {
   attributes: {
     test: Attribute.Component<'test.test'>;
     QCM: Attribute.Component<'test.qcm', true>;
+    medecine_orale_parties: Attribute.Relation<
+      'api::medecine-orale.medecine-orale',
+      'oneToMany',
+      'api::medecine-orale-partie.medecine-orale-partie'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1015,6 +1020,43 @@ export interface ApiMedecineOraleMedecineOrale extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::medecine-orale.medecine-orale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMedecineOralePartieMedecineOralePartie
+  extends Schema.CollectionType {
+  collectionName: 'medecine_orale_parties';
+  info: {
+    singularName: 'medecine-orale-partie';
+    pluralName: 'medecine-orale-parties';
+    displayName: 'M\u00E9decine orale partie';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    test: Attribute.Component<'test.test'>;
+    medecine_orale: Attribute.Relation<
+      'api::medecine-orale-partie.medecine-orale-partie',
+      'manyToOne',
+      'api::medecine-orale.medecine-orale'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::medecine-orale-partie.medecine-orale-partie',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::medecine-orale-partie.medecine-orale-partie',
       'oneToOne',
       'admin::user'
     > &
@@ -1193,6 +1235,7 @@ declare module '@strapi/types' {
       'api::liens-utile.liens-utile': ApiLiensUtileLiensUtile;
       'api::matiere.matiere': ApiMatiereMatiere;
       'api::medecine-orale.medecine-orale': ApiMedecineOraleMedecineOrale;
+      'api::medecine-orale-partie.medecine-orale-partie': ApiMedecineOralePartieMedecineOralePartie;
       'api::occlusion-et-fonction.occlusion-et-fonction': ApiOcclusionEtFonctionOcclusionEtFonction;
       'api::occlusion-et-fonction-partie.occlusion-et-fonction-partie': ApiOcclusionEtFonctionPartieOcclusionEtFonctionPartie;
       'api::risques-medicaux.risques-medicaux': ApiRisquesMedicauxRisquesMedicaux;

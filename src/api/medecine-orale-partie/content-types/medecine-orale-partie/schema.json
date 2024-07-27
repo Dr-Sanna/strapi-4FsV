@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "medecine_orale_parties",
+  "info": {
+    "singularName": "medecine-orale-partie",
+    "pluralName": "medecine-orale-parties",
+    "displayName": "Médecine orale partie",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "test": {
+      "type": "component",
+      "repeatable": false,
+      "component": "test.test"
+    },
+    "medecine_orale": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::medecine-orale.medecine-orale",
+      "inversedBy": "medecine_orale_parties"
+    }
+  }
+}
