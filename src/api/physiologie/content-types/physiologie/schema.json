@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "physiologies",
+  "info": {
+    "singularName": "physiologie",
+    "pluralName": "physiologies",
+    "displayName": "Physiologie"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "test": {
+      "type": "component",
+      "repeatable": false,
+      "component": "test.test"
+    }
+  }
+}

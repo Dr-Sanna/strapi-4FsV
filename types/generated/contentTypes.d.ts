@@ -1138,6 +1138,36 @@ export interface ApiOcclusionEtFonctionPartieOcclusionEtFonctionPartie
   };
 }
 
+export interface ApiPhysiologiePhysiologie extends Schema.CollectionType {
+  collectionName: 'physiologies';
+  info: {
+    singularName: 'physiologie';
+    pluralName: 'physiologies';
+    displayName: 'Physiologie';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    test: Attribute.Component<'test.test'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::physiologie.physiologie',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::physiologie.physiologie',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiRisquesMedicauxRisquesMedicaux
   extends Schema.CollectionType {
   collectionName: 'risques_medicauxes';
@@ -1238,6 +1268,7 @@ declare module '@strapi/types' {
       'api::medecine-orale-partie.medecine-orale-partie': ApiMedecineOralePartieMedecineOralePartie;
       'api::occlusion-et-fonction.occlusion-et-fonction': ApiOcclusionEtFonctionOcclusionEtFonction;
       'api::occlusion-et-fonction-partie.occlusion-et-fonction-partie': ApiOcclusionEtFonctionPartieOcclusionEtFonctionPartie;
+      'api::physiologie.physiologie': ApiPhysiologiePhysiologie;
       'api::risques-medicaux.risques-medicaux': ApiRisquesMedicauxRisquesMedicaux;
       'api::sous-matiere.sous-matiere': ApiSousMatiereSousMatiere;
     }
