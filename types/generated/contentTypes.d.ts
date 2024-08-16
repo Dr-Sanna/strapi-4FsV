@@ -1168,6 +1168,37 @@ export interface ApiPhysiologiePhysiologie extends Schema.CollectionType {
   };
 }
 
+export interface ApiRessourcesUtileRessourcesUtile
+  extends Schema.CollectionType {
+  collectionName: 'ressources_utiles';
+  info: {
+    singularName: 'ressources-utile';
+    pluralName: 'ressources-utiles';
+    displayName: 'Ressources utile';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    test: Attribute.Component<'test.test'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::ressources-utile.ressources-utile',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::ressources-utile.ressources-utile',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiRisquesMedicauxRisquesMedicaux
   extends Schema.CollectionType {
   collectionName: 'risques_medicauxes';
@@ -1222,6 +1253,7 @@ export interface ApiSousMatiereSousMatiere extends Schema.CollectionType {
     actionType: Attribute.Enumeration<
       ['cours', 'liens_utiles', 'cas_cliniques']
     >;
+    order: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1269,6 +1301,7 @@ declare module '@strapi/types' {
       'api::occlusion-et-fonction.occlusion-et-fonction': ApiOcclusionEtFonctionOcclusionEtFonction;
       'api::occlusion-et-fonction-partie.occlusion-et-fonction-partie': ApiOcclusionEtFonctionPartieOcclusionEtFonctionPartie;
       'api::physiologie.physiologie': ApiPhysiologiePhysiologie;
+      'api::ressources-utile.ressources-utile': ApiRessourcesUtileRessourcesUtile;
       'api::risques-medicaux.risques-medicaux': ApiRisquesMedicauxRisquesMedicaux;
       'api::sous-matiere.sous-matiere': ApiSousMatiereSousMatiere;
     }

@@ -38,6 +38,9 @@
         "liens_utiles",
         "cas_cliniques"
       ]
+    },
+    "order": {
+      "type": "integer"
     }
   }
 }
