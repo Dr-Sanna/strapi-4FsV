@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "ressources_utiles",
+  "collectionName": "notions_elementaires",
   "info": {
-    "singularName": "ressources-utile",
-    "pluralName": "ressources-utiles",
-    "displayName": "Ressources utile"
+    "singularName": "notions-elementaire",
+    "pluralName": "notions-elementaires",
+    "displayName": "Notions élémentaire"
   },
   "options": {
     "draftAndPublish": true

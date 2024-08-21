@@ -1064,6 +1064,37 @@ export interface ApiMedecineOralePartieMedecineOralePartie
   };
 }
 
+export interface ApiNotionsElementaireNotionsElementaire
+  extends Schema.CollectionType {
+  collectionName: 'notions_elementaires';
+  info: {
+    singularName: 'notions-elementaire';
+    pluralName: 'notions-elementaires';
+    displayName: 'Notions \u00E9l\u00E9mentaire';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    test: Attribute.Component<'test.test'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::notions-elementaire.notions-elementaire',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::notions-elementaire.notions-elementaire',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiOcclusionEtFonctionOcclusionEtFonction
   extends Schema.CollectionType {
   collectionName: 'occlusion_et_fonctions';
@@ -1161,37 +1192,6 @@ export interface ApiPhysiologiePhysiologie extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::physiologie.physiologie',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiRessourcesUtileRessourcesUtile
-  extends Schema.CollectionType {
-  collectionName: 'ressources_utiles';
-  info: {
-    singularName: 'ressources-utile';
-    pluralName: 'ressources-utiles';
-    displayName: 'Ressources utile';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    test: Attribute.Component<'test.test'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::ressources-utile.ressources-utile',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::ressources-utile.ressources-utile',
       'oneToOne',
       'admin::user'
     > &
@@ -1298,10 +1298,10 @@ declare module '@strapi/types' {
       'api::matiere.matiere': ApiMatiereMatiere;
       'api::medecine-orale.medecine-orale': ApiMedecineOraleMedecineOrale;
       'api::medecine-orale-partie.medecine-orale-partie': ApiMedecineOralePartieMedecineOralePartie;
+      'api::notions-elementaire.notions-elementaire': ApiNotionsElementaireNotionsElementaire;
       'api::occlusion-et-fonction.occlusion-et-fonction': ApiOcclusionEtFonctionOcclusionEtFonction;
       'api::occlusion-et-fonction-partie.occlusion-et-fonction-partie': ApiOcclusionEtFonctionPartieOcclusionEtFonctionPartie;
       'api::physiologie.physiologie': ApiPhysiologiePhysiologie;
-      'api::ressources-utile.ressources-utile': ApiRessourcesUtileRessourcesUtile;
       'api::risques-medicaux.risques-medicaux': ApiRisquesMedicauxRisquesMedicaux;
       'api::sous-matiere.sous-matiere': ApiSousMatiereSousMatiere;
     }
