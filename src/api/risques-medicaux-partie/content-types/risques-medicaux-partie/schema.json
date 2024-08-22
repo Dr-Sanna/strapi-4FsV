@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "risques_medicaux_parties",
+  "info": {
+    "singularName": "risques-medicaux-partie",
+    "pluralName": "risques-medicaux-parties",
+    "displayName": "Risques médicaux partie"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "test": {
+      "type": "component",
+      "repeatable": false,
+      "component": "test.test"
+    },
+    "risques_medicaux": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::risques-medicaux.risques-medicaux",
+      "inversedBy": "risques_medicaux_parties"
+    }
+  }
+}

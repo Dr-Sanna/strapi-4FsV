@@ -1213,6 +1213,11 @@ export interface ApiRisquesMedicauxRisquesMedicaux
   };
   attributes: {
     test: Attribute.Component<'test.test'>;
+    risques_medicaux_parties: Attribute.Relation<
+      'api::risques-medicaux.risques-medicaux',
+      'oneToMany',
+      'api::risques-medicaux-partie.risques-medicaux-partie'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1224,6 +1229,42 @@ export interface ApiRisquesMedicauxRisquesMedicaux
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::risques-medicaux.risques-medicaux',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiRisquesMedicauxPartieRisquesMedicauxPartie
+  extends Schema.CollectionType {
+  collectionName: 'risques_medicaux_parties';
+  info: {
+    singularName: 'risques-medicaux-partie';
+    pluralName: 'risques-medicaux-parties';
+    displayName: 'Risques m\u00E9dicaux partie';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    test: Attribute.Component<'test.test'>;
+    risques_medicaux: Attribute.Relation<
+      'api::risques-medicaux-partie.risques-medicaux-partie',
+      'manyToOne',
+      'api::risques-medicaux.risques-medicaux'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::risques-medicaux-partie.risques-medicaux-partie',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::risques-medicaux-partie.risques-medicaux-partie',
       'oneToOne',
       'admin::user'
     > &
@@ -1303,6 +1344,7 @@ declare module '@strapi/types' {
       'api::occlusion-et-fonction-partie.occlusion-et-fonction-partie': ApiOcclusionEtFonctionPartieOcclusionEtFonctionPartie;
       'api::physiologie.physiologie': ApiPhysiologiePhysiologie;
       'api::risques-medicaux.risques-medicaux': ApiRisquesMedicauxRisquesMedicaux;
+      'api::risques-medicaux-partie.risques-medicaux-partie': ApiRisquesMedicauxPartieRisquesMedicauxPartie;
       'api::sous-matiere.sous-matiere': ApiSousMatiereSousMatiere;
     }
   }

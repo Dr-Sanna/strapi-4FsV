@@ -16,6 +16,12 @@
       "type": "component",
       "repeatable": false,
       "component": "test.test"
+    },
+    "risques_medicaux_parties": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::risques-medicaux-partie.risques-medicaux-partie",
+      "mappedBy": "risques_medicaux"
     }
   }
 }
