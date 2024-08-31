@@ -15,6 +15,12 @@
       "type": "component",
       "repeatable": false,
       "component": "test.test"
+    },
+    "notions_elementaires_parties": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::notions-elementaires-partie.notions-elementaires-partie",
+      "mappedBy": "notions_elementaire"
     }
   }
 }

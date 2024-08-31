@@ -1077,6 +1077,11 @@ export interface ApiNotionsElementaireNotionsElementaire
   };
   attributes: {
     test: Attribute.Component<'test.test'>;
+    notions_elementaires_parties: Attribute.Relation<
+      'api::notions-elementaire.notions-elementaire',
+      'oneToMany',
+      'api::notions-elementaires-partie.notions-elementaires-partie'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1088,6 +1093,43 @@ export interface ApiNotionsElementaireNotionsElementaire
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::notions-elementaire.notions-elementaire',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiNotionsElementairesPartieNotionsElementairesPartie
+  extends Schema.CollectionType {
+  collectionName: 'notions_elementaires_parties';
+  info: {
+    singularName: 'notions-elementaires-partie';
+    pluralName: 'notions-elementaires-parties';
+    displayName: 'Notions \u00E9l\u00E9mentaires partie';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    test: Attribute.Component<'test.test'>;
+    notions_elementaire: Attribute.Relation<
+      'api::notions-elementaires-partie.notions-elementaires-partie',
+      'manyToOne',
+      'api::notions-elementaire.notions-elementaire'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::notions-elementaires-partie.notions-elementaires-partie',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::notions-elementaires-partie.notions-elementaires-partie',
       'oneToOne',
       'admin::user'
     > &
@@ -1340,6 +1382,7 @@ declare module '@strapi/types' {
       'api::medecine-orale.medecine-orale': ApiMedecineOraleMedecineOrale;
       'api::medecine-orale-partie.medecine-orale-partie': ApiMedecineOralePartieMedecineOralePartie;
       'api::notions-elementaire.notions-elementaire': ApiNotionsElementaireNotionsElementaire;
+      'api::notions-elementaires-partie.notions-elementaires-partie': ApiNotionsElementairesPartieNotionsElementairesPartie;
       'api::occlusion-et-fonction.occlusion-et-fonction': ApiOcclusionEtFonctionOcclusionEtFonction;
       'api::occlusion-et-fonction-partie.occlusion-et-fonction-partie': ApiOcclusionEtFonctionPartieOcclusionEtFonctionPartie;
       'api::physiologie.physiologie': ApiPhysiologiePhysiologie;

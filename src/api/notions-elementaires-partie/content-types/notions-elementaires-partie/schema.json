@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "notions_elementaires_parties",
+  "info": {
+    "singularName": "notions-elementaires-partie",
+    "pluralName": "notions-elementaires-parties",
+    "displayName": "Notions élémentaires partie",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "test": {
+      "type": "component",
+      "repeatable": false,
+      "component": "test.test"
+    },
+    "notions_elementaire": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::notions-elementaire.notions-elementaire",
+      "inversedBy": "notions_elementaires_parties"
+    }
+  }
+}
