@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cas_randomisations",
+  "info": {
+    "singularName": "cas-randomisation",
+    "pluralName": "cas-randomisations",
+    "displayName": "Cas-randomisation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "contexte": {
+      "type": "blocks"
+    },
+    "source": {
+      "type": "string"
+    },
+    "pathologie": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pathologie.pathologie",
+      "inversedBy": "cas_randomisations"
+    },
+    "diagnosticspecifique": {
+      "type": "string"
+    },
+    "explicationspecifique": {
+      "type": "blocks"
+    },
+    "affichercontexte": {
+      "type": "boolean"
+    }
+  }
+}

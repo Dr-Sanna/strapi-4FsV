@@ -852,6 +852,47 @@ export interface ApiCasCliniqueCasClinique extends Schema.CollectionType {
   };
 }
 
+export interface ApiCasRandomisationCasRandomisation
+  extends Schema.CollectionType {
+  collectionName: 'cas_randomisations';
+  info: {
+    singularName: 'cas-randomisation';
+    pluralName: 'cas-randomisations';
+    displayName: 'Cas-randomisation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media;
+    contexte: Attribute.Blocks;
+    source: Attribute.String;
+    pathologie: Attribute.Relation<
+      'api::cas-randomisation.cas-randomisation',
+      'manyToOne',
+      'api::pathologie.pathologie'
+    >;
+    diagnosticspecifique: Attribute.String;
+    explicationspecifique: Attribute.Blocks;
+    affichercontexte: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::cas-randomisation.cas-randomisation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::cas-randomisation.cas-randomisation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiEssaiEssai extends Schema.CollectionType {
   collectionName: 'essais';
   info: {
@@ -1211,6 +1252,45 @@ export interface ApiOcclusionEtFonctionPartieOcclusionEtFonctionPartie
   };
 }
 
+export interface ApiPathologiePathologie extends Schema.CollectionType {
+  collectionName: 'pathologies';
+  info: {
+    singularName: 'pathologie';
+    pluralName: 'pathologies';
+    displayName: 'Pathologie';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    titre: Attribute.String;
+    cas_randomisations: Attribute.Relation<
+      'api::pathologie.pathologie',
+      'oneToMany',
+      'api::cas-randomisation.cas-randomisation'
+    >;
+    description: Attribute.Blocks;
+    diagnostic: Attribute.String;
+    source: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pathologie.pathologie',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pathologie.pathologie',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPhysiologiePhysiologie extends Schema.CollectionType {
   collectionName: 'physiologies';
   info: {
@@ -1375,6 +1455,7 @@ declare module '@strapi/types' {
       'plugin::i18n.locale': PluginI18NLocale;
       'api::anatomie-tete-et-cou.anatomie-tete-et-cou': ApiAnatomieTeteEtCouAnatomieTeteEtCou;
       'api::cas-clinique.cas-clinique': ApiCasCliniqueCasClinique;
+      'api::cas-randomisation.cas-randomisation': ApiCasRandomisationCasRandomisation;
       'api::essai.essai': ApiEssaiEssai;
       'api::essai-partie.essai-partie': ApiEssaiPartieEssaiPartie;
       'api::liens-utile.liens-utile': ApiLiensUtileLiensUtile;
@@ -1385,6 +1466,7 @@ declare module '@strapi/types' {
       'api::notions-elementaires-partie.notions-elementaires-partie': ApiNotionsElementairesPartieNotionsElementairesPartie;
       'api::occlusion-et-fonction.occlusion-et-fonction': ApiOcclusionEtFonctionOcclusionEtFonction;
       'api::occlusion-et-fonction-partie.occlusion-et-fonction-partie': ApiOcclusionEtFonctionPartieOcclusionEtFonctionPartie;
+      'api::pathologie.pathologie': ApiPathologiePathologie;
       'api::physiologie.physiologie': ApiPhysiologiePhysiologie;
       'api::risques-medicaux.risques-medicaux': ApiRisquesMedicauxRisquesMedicaux;
       'api::risques-medicaux-partie.risques-medicaux-partie': ApiRisquesMedicauxPartieRisquesMedicauxPartie;
