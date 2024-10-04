@@ -4,7 +4,8 @@
   "info": {
     "singularName": "cas-randomisation",
     "pluralName": "cas-randomisations",
-    "displayName": "Cas-randomisation"
+    "displayName": "Cas-randomisation",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,17 +13,15 @@
   "pluginOptions": {},
   "attributes": {
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
-    },
-    "contexte": {
-      "type": "blocks"
+      ]
     },
     "source": {
       "type": "string"
@@ -36,11 +35,24 @@
     "diagnosticspecifique": {
       "type": "string"
     },
-    "explicationspecifique": {
-      "type": "blocks"
-    },
     "affichercontexte": {
       "type": "boolean"
+    },
+    "contexte": {
+      "type": "customField",
+      "options": {
+        "output": "Markdown",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "explicationspecifique": {
+      "type": "customField",
+      "options": {
+        "output": "Markdown",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     }
   }
 }

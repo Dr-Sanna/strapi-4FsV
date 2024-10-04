@@ -21,14 +21,19 @@
       "target": "api::cas-randomisation.cas-randomisation",
       "mappedBy": "pathologie"
     },
-    "description": {
-      "type": "blocks"
-    },
     "diagnostic": {
       "type": "string"
     },
     "source": {
       "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "output": "Markdown",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     }
   }
 }

@@ -859,13 +859,13 @@ export interface ApiCasRandomisationCasRandomisation
     singularName: 'cas-randomisation';
     pluralName: 'cas-randomisations';
     displayName: 'Cas-randomisation';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     image: Attribute.Media;
-    contexte: Attribute.Blocks;
     source: Attribute.String;
     pathologie: Attribute.Relation<
       'api::cas-randomisation.cas-randomisation',
@@ -873,8 +873,23 @@ export interface ApiCasRandomisationCasRandomisation
       'api::pathologie.pathologie'
     >;
     diagnosticspecifique: Attribute.String;
-    explicationspecifique: Attribute.Blocks;
     affichercontexte: Attribute.Boolean;
+    contexte: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'Markdown';
+          preset: 'rich';
+        }
+      >;
+    explicationspecifique: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'Markdown';
+          preset: 'rich';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1270,9 +1285,16 @@ export interface ApiPathologiePathologie extends Schema.CollectionType {
       'oneToMany',
       'api::cas-randomisation.cas-randomisation'
     >;
-    description: Attribute.Blocks;
     diagnostic: Attribute.String;
     source: Attribute.String;
+    description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'Markdown';
+          preset: 'rich';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
