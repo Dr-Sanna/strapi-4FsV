@@ -1,7 +1,8 @@
 {
   "collectionName": "components_test_qcms",
   "info": {
-    "displayName": "QCM"
+    "displayName": "QCM",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -13,6 +14,14 @@
       "type": "component",
       "repeatable": true,
       "component": "test.proposition"
+    },
+    "complement": {
+      "type": "customField",
+      "options": {
+        "output": "Markdown",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     }
   }
 }

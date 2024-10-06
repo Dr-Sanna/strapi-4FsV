@@ -16,6 +16,11 @@
       "type": "component",
       "repeatable": false,
       "component": "test.test"
+    },
+    "QCM": {
+      "type": "component",
+      "repeatable": true,
+      "component": "test.qcm"
     }
   }
 }

@@ -16,10 +16,19 @@ export interface TestQcm extends Schema.Component {
   collectionName: 'components_test_qcms';
   info: {
     displayName: 'QCM';
+    description: '';
   };
   attributes: {
     question: Attribute.String;
     proposition: Attribute.Component<'test.proposition', true>;
+    complement: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'Markdown';
+          preset: 'rich';
+        }
+      >;
   };
 }
 

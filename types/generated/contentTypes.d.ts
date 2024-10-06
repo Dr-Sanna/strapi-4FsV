@@ -834,6 +834,7 @@ export interface ApiCasCliniqueCasClinique extends Schema.CollectionType {
   };
   attributes: {
     test: Attribute.Component<'test.test'>;
+    QCM: Attribute.Component<'test.qcm', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
